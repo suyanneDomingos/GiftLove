@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="tartaruga.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tartaruga.css">
     <title>Presente de Namoro</title>
 </head>
 
@@ -60,7 +60,7 @@
     </div>
 
     <!-- Cartas que aparecem -->
-    <div class="letter" id="letter1">
+    <div class="letter" data-music="0" id="letter1">
         <button class="close" onclick="closeLetter()">×</button>
         <div class="content">
             <h2> O quanto eu te amo</h2>
@@ -70,7 +70,7 @@
             </div>
         </div>
     </div>
-    <div class="letter" id="letter2">
+    <div class="letter" data-music="1"  id="letter2">
         <button class="close" onclick="closeLetter()">×</button>
         <div class="content">
             <h2> O que eu admiro em você </h2>
@@ -80,7 +80,7 @@
             </div>
         </div>
     </div>
-    <div class="letter" id="letter3">
+    <div class="letter" data-music="2"  id="letter3">
         <button class="close" onclick="closeLetter()">×</button>
         <div class="content">
             <h2>O futuro que eu quero</h2>
@@ -90,7 +90,7 @@
             </div>
         </div>
     </div>
-    <div class="letter" id="letter4">
+    <div class="letter" data-music="3"  id="letter4">
         <button class="close" onclick="closeLetter()">×</button>
         <div class="content">
             <h2>Enquanto for você </h2>
@@ -100,7 +100,7 @@
             </div>
         </div>
     </div>
-    <div class="letter" id="letter5">
+    <div class="letter"  data-music="4"  id="letter5">
         <button class="close" onclick="closeLetter()">×</button>
         <div class="content">
             <h2> Nossos 2 anos juntas</h2>
@@ -110,7 +110,7 @@
             </div>
         </div>
     </div>
-    <div class="letter" id="letter6">
+    <div class="letter" data-music="5"  id="letter6">
         <button class="close" onclick="closeLetter()">×</button>
         <div class="content">
             <h2> minha promessa</h2>
@@ -139,10 +139,13 @@
     <!-- Áudios -->
     <audio id="openSound" src="https://assets.mixkit.co/active_storage/sfx/256/256-preview.mp3" preload="auto"></audio>
     <audio id="paperSound" src="https://assets.mixkit.co/active_storage/sfx/269/269-preview.mp3" preload="auto"></audio>
-    <audio id="backgroundMusic" src="https://assets.mixkit.co/music/preview/mixkit-happy-birthday-to-you-443.mp3"
-        preload="auto" loop></audio>
+    <audio id="backgroundMusic" src="audio/home.mp3" preload="auto" loop></audio>
 
     <script src="script.js"></script>
+    <script>
+       
+    </script>
+
 </body>
 
 </html>
