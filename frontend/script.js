@@ -89,6 +89,71 @@ function fadeOutAudio(audio, duration = 500) {
     }, step);
 }
 
+// =================== Funções para Abrir/Fechar Cartas =================== //
+
+// Função para abrir uma carta específica
+function openLetter(letterId) {
+    const letter = document.getElementById(letterId);
+    if (!letter) return;
+
+    // Pausar música de fundo se estiver tocando
+    const wasPlaying = !bgMusic.paused;
+    
+    // Tocar som de carta
+    playSound('paperSound');
+    
+    // Mostrar overlay
+    overlay.classList.add('active');
+    
+    // Mostrar carta
+    letter.classList.add('show');
+    letter.dataset.wasPlaying = wasPlaying;
+    
+    // Pausar bgMusic se estiver tocando
+    if (wasPlaying) {
+        bgMusic.pause();
+    }
+    
+    // Tocar música específica da carta (se houver)
+    const musicIndex = parseInt(letter.getAttribute('data-music') || 0, 10);
+    if (musicIndex >= 0 && musicEnabled) {
+        playMusic(musicIndex);
+    }
+    
+    // Criar confetes
+    createConfetti();
+}
+
+// Função para fechar carta
+function closeLetter() {
+    // Fechar todas as cartas abertas
+    document.querySelectorAll('.letter.show').forEach(letter => {
+        const wasPlaying = letter.dataset.wasPlaying === 'true';
+        
+        // Esconder carta
+        letter.classList.remove('show');
+        
+        // Retomar música se estava tocando antes
+        if (wasPlaying && musicEnabled) {
+            bgMusic.play().catch(() => console.log('Autoplay bloqueado.'));
+        }
+    });
+    
+    // Remover overlay se não houver mais cartas abertas
+    if (document.querySelectorAll('.letter.show').length === 0) {
+        overlay.classList.remove('active');
+    }
+    
+    // Parar música da carta atual
+    if (currentAudio) {
+        fadeOutAudio(currentAudio, 500);
+        currentAudio = null;
+    }
+    
+    // Restaurar volume do bgMusic
+    fadeVolume(bgMusic, musicEnabled ? BG_VOLUME : 0, 500);
+}
+
 // =================== Eventos =================== //
 
 // Abrir presente
@@ -108,40 +173,21 @@ caixa.addEventListener('click', () => {
     }
 });
 
-// Abrir carta
+// Abrir carta (atualizada)
 papers.forEach(paper => {
     paper.addEventListener('click', function() {
         if (!presentOpened) return;
 
         const letterNum = parseInt(this.dataset.letter, 10);
-        const letter = document.getElementById(`letter${letterNum}`);
-        if (!letter) return;
-
-        playSound('paperSound');
-        overlay.classList.add('active');
-        letter.classList.add('show');
-
-        createConfetti();
+        const letterId = `letter${letterNum}`;
+        
+        openLetter(letterId);
+        
+        // Efeito visual na carta pequena
         this.classList.add('clicked');
         setTimeout(() => this.classList.remove('clicked'), 500);
-
-        playMusic(letterNum - 1);
     });
 });
-
-// Fechar carta
-function closeLetter() {
-    document.querySelectorAll('.letter').forEach(letter => letter.classList.remove('show'));
-    overlay.classList.remove('active');
-
-    if (currentAudio) {
-        fadeOutAudio(currentAudio, 500);
-        currentAudio = null;
-    }
-
-    // Restaura bgMusic ao volume normal
-    fadeVolume(bgMusic, musicEnabled ? BG_VOLUME : 0, 500);
-}
 
 // Controles de áudio
 document.getElementById('musicToggle').addEventListener('click', function() {
@@ -232,6 +278,12 @@ turtle?.addEventListener('click', showTartarugaMessage);
 
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
+    // Adicionar eventos aos botões de fechar nas cartas
+    document.querySelectorAll('.letter .close').forEach(closeBtn => {
+        closeBtn.addEventListener('click', closeLetter);
+    });
+    
+    // Precarregar áudios
     document.querySelectorAll('audio').forEach(audio => audio.load());
     console.log('Presente carregado!');
 });

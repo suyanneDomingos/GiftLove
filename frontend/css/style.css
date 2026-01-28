@@ -278,8 +278,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    width: 400px;
-    height: 300px;
+    width: 90px;
+    height: 3000px;
     background: #CFE0BC;
     /* Fundo verde claro */
     border: 3px solid #63783D;
@@ -314,6 +314,10 @@ body {
 .letter .content {
     padding: 20px;
     text-align: center;
+    overflow-y: auto;
+    /* Adicione esta linha */
+    max-height: calc(100% - 40px);
+    /* E esta linha para limitar altura */
 }
 
 .letter .content h2 {
@@ -483,15 +487,19 @@ body {
         height: 80px;
         font-size: 18px;
     }
-
-    .letter {
-        width: 90%;
-        height: 250px;
-    }
-
-    .letter .content {
-        padding: 15px;
-    }
+        .letter {
+            width: 90%;
+            height: 70vh;
+            /* Alterar de 250px para 70vh */
+            max-height: 900px;
+            /* Adicionar altura máxima */
+        }
+    
+        .letter .content {
+            max-height: 900px;
+            overflow-y: auto;
+        }
+        
 
     .letter .content h2 {
         font-size: 20px;
@@ -737,4 +745,38 @@ body {
         align-items: center;
         justify-content: center;
     }
+}
+
+/* Garantir que as cartas estejam visíveis quando a classe show for adicionada */
+.letter.show {
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translate(-50%, -50%) scale(1) !important;
+}
+
+/* Overlay para quando carta estiver aberta */
+.overlay.active {
+    display: block;
+    backdrop-filter: blur(3px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Ajustar z-index das cartas */
+.letter {
+    z-index: 1000;
+}
+
+.overlay {
+    z-index: 999;
 }
