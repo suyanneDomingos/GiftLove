@@ -261,7 +261,7 @@
         height: 70px;
         top: 12% !important;
         
-        z-index: 102;
+        z-index: 99;
     }
 
     .head::before,
@@ -317,6 +317,7 @@
         width: 45px;
         height: 55px;
         top: 5% !important;
+        z-index: 99;
         
     }
 
@@ -387,6 +388,7 @@
         height: 45px;
         top: 4% !important;
         bottom: 40%;
+        z-index: 99;
     }
 
     .head::before,
