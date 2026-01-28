@@ -81,7 +81,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## ✨ Créditos
 
 - Projeto criado para **celebração de namoro**.  
-- Presente animado: [YouTube](https://youtu.be/IPr_4oBfmPA?si=EMouF3-78muBDhpS)  
+- Presente animado: [YouTube](https://youtu.be/IPr_4oBfmPA?si=EMouF3-78muBDhpS)  | [Repositório](https://github.com/natalia-fs/aprendendo-css/tree/master/presente)
 - Tartaruga interativa: [YouTube](https://youtu.be/njLwKz-4j-4?si=2IYTJ8TOZKvLHcM5)  
 
 ---
