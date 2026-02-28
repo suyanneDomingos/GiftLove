@@ -1,10 +1,10 @@
-# 🎁 Gift For Your Love
+#  Gift For Your Love
 
 Um projeto interativo para celebrar **2 anos de namoro**, com presentes virtuais, cartas e músicas especiais para criar uma experiência emocionante e única.
 
 ---
 
-## 💌 Sobre
+##  Sobre
 
 Este projeto é uma página web que combina:  
 
@@ -17,7 +17,7 @@ Este projeto é uma página web que combina:
 
 ---
 
-## 🎵 Músicas das cartas
+##  Músicas das cartas
 
 > **Nota legal:** As músicas originais listadas abaixo são protegidas por copyright e **não estão incluídas no projeto**. Para uso legal, substitua por músicas royalty-free em `audio/`.   
 
@@ -32,7 +32,7 @@ Este projeto é uma página web que combina:
 
 ---
 
-## 🛠️ Tecnologias
+##  Tecnologias
 
 - HTML5  
 - CSS3  
@@ -42,7 +42,7 @@ Este projeto é uma página web que combina:
 
 ---
 
-## 🚀 Como usar
+##  Como usar
 
 1. Abra o `index.html` no navegador.  
 2. Clique no presente para abrir as cartas.  
@@ -52,7 +52,7 @@ Este projeto é uma página web que combina:
 
 ---
 
-## ❤️ Personalização
+##  Personalização
 
 Você pode facilmente:  
 
